@@ -1,0 +1,528 @@
+/* Сайт-резюме. Єдиний файл стилів, без зовнішніх шрифтів і запитів. */
+
+:root {
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --size-body: 1rem;      /* 16px */
+  --size-small: 0.9375rem; /* 15px */
+  --size-h3: 1.125rem;     /* 18px */
+  --size-h2: 1.375rem;     /* 22px */
+  --size-h1: 1.875rem;     /* 30px */
+  --size-headline: 1.0625rem; /* 17px */
+
+  --line-body: 1.55;
+  --line-heading: 1.2;
+
+  --measure: 38rem; /* ~70 знаків рядка для основного тексту */
+
+  --color-bg: #ffffff;
+  --color-surface: #f6f7f8;
+  --color-border: #e2e2e4;
+  --color-text: #1a1a1a;
+  --color-heading: #16365c;
+  --color-accent: #1f4e79;
+  --color-muted: #595959;
+  --color-focus: #1f4e79;
+  --color-on-accent: #ffffff;
+
+  --radius: 8px;
+  --touch-min: 44px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #14191f;
+    --color-surface: #1b222b;
+    --color-border: #2a323c;
+    --color-text: #e5e5e5;
+    --color-heading: #9fc5e8;
+    --color-accent: #8ab4e0;
+    --color-muted: #b0b0b0;
+    --color-focus: #8ab4e0;
+    --color-on-accent: #0c1015;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  line-height: var(--line-body);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+main {
+  display: block;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+  padding-block-end: var(--space-7);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  line-height: var(--line-heading);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--size-h1);
+  margin: 0 0 var(--space-2);
+}
+
+h2 {
+  font-size: var(--size-h2);
+  margin: var(--space-7) 0 var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+section:first-of-type h2 {
+  margin-top: var(--space-6);
+}
+
+h3 {
+  font-size: var(--size-h3);
+  margin: 0 0 var(--space-1);
+}
+
+p {
+  margin: 0 0 var(--space-3);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:visited {
+  color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Посилання «перейти до змісту» */
+
+.skip-link {
+  position: absolute;
+  left: var(--space-3);
+  top: -100px;
+  z-index: 100;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  text-decoration: none;
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: var(--space-3);
+}
+
+/* Шапка */
+
+header {
+  padding-block-start: var(--space-6);
+  padding-block-end: var(--space-5);
+}
+
+.identity {
+  margin-bottom: var(--space-5);
+}
+
+.identity .headline {
+  font-size: var(--size-headline);
+  color: var(--color-text);
+  margin: 0 0 var(--space-1);
+}
+
+.identity .location {
+  font-size: var(--size-small);
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-min);
+  padding: 0 var(--space-5);
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--color-accent);
+  font-size: var(--size-body);
+}
+
+.btn:focus-visible {
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn-primary:active {
+  background: var(--color-heading);
+  border-color: var(--color-heading);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.btn-secondary:active {
+  background: var(--color-surface);
+}
+
+@media (hover: hover) {
+  .btn-primary:hover {
+    background: var(--color-heading);
+    border-color: var(--color-heading);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-surface);
+  }
+}
+
+.header-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+}
+
+.header-links ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  padding: 0;
+}
+
+.header-links li {
+  display: flex;
+}
+
+.header-links a,
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  font-size: var(--size-small);
+}
+
+.print-contact {
+  display: none;
+}
+
+/* Розділи */
+
+section {
+  scroll-margin-top: var(--space-4);
+}
+
+.meta {
+  color: var(--color-muted);
+  font-size: var(--size-small);
+  margin: 0 0 var(--space-2);
+}
+
+.cite {
+  color: var(--color-muted);
+  font-size: var(--size-small);
+}
+
+.stack {
+  color: var(--color-muted);
+  font-size: var(--size-small);
+  margin: 0 0 var(--space-2);
+}
+
+.entry-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  font-size: var(--size-small);
+}
+
+.entry-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  min-width: var(--touch-min);
+  justify-content: center;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.entry-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entry {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.entry:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+ol.entry-list {
+  counter-reset: pub;
+}
+
+ol.entry-list > li.entry {
+  padding-left: 0;
+}
+
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plain-list li {
+  padding-block: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.plain-list li:first-child {
+  border-top: none;
+}
+
+#dissertation .dissertation-code {
+  margin-top: var(--space-2);
+}
+
+#dissertation .dissertation-code a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+}
+
+/* Підвал */
+
+footer {
+  padding-block: var(--space-6) var(--space-7);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--size-small);
+  color: var(--color-muted);
+}
+
+footer a {
+  min-height: var(--touch-min);
+  min-width: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--space-1);
+}
+
+/* Друк */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 8.4pt;
+    line-height: 1.24;
+  }
+
+  /* Системний шрифт macOS потрапляє в PDF як Type 3, і частина програм читає з нього
+     «ĸ» замість «к». Arial вбудовується з правильною таблицею символів. */
+  body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+
+  #summary > p {
+    column-span: all;
+  }
+
+  .print-contact a {
+    white-space: nowrap;
+  }
+
+  .skip-link,
+  .actions,
+  .header-links {
+    display: none;
+  }
+
+  .print-contact {
+    display: block;
+    color: #000000;
+    font-size: 9pt;
+    margin: var(--space-2) 0 0;
+  }
+
+  header {
+    padding-block: 0 var(--space-3);
+  }
+
+  .identity {
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    font-size: 16pt;
+  }
+
+  .identity .headline {
+    font-size: 9.5pt;
+  }
+
+  .identity .location {
+    font-size: 8pt;
+  }
+
+  main {
+    columns: 2;
+    column-gap: 7mm;
+    max-width: none;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 11pt;
+    margin: var(--space-2) 0 var(--space-1);
+    padding-top: 3px;
+    column-span: all;
+    break-after: avoid;
+  }
+
+  section:first-of-type h2 {
+    margin-top: 0;
+  }
+
+  h3 {
+    font-size: 9pt;
+    margin: 0;
+  }
+
+  p {
+    margin: 0 0 3px;
+  }
+
+  a {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  .entry {
+    padding-block: 4px;
+    break-inside: avoid;
+  }
+
+  .meta,
+  .cite,
+  .stack,
+  .entry-links {
+    font-size: 7.3pt;
+  }
+
+  .entry-links {
+    gap: 2px 8px;
+  }
+
+  .entry-links a,
+  #dissertation .dissertation-code a {
+    display: inline;
+    min-height: 0;
+    min-width: 0;
+    padding-inline: 0;
+    border: none;
+  }
+
+  footer {
+    display: none;
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "lang": "en",
+  "name": "Bohdan Hirianskyi",
+  "headline": "Machine Learning · Python · PhD in Computer Science",
+  "location": "Kyiv, Ukraine",
+  "email": "giryanskbogdan@gmail.com",
+  "links": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/GirBP"
+    },
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0009-0000-6580-7268"
+    }
+  ],
+  "pdf": "../assets/cv-hirianskyi-en.pdf",
+  "other_lang": {
+    "label": "Українська",
+    "url": "../"
+  },
+  "labels": {
+    "summary": "Summary",
+    "skills": "Skills",
+    "dissertation": "Dissertation",
+    "publications": "Publications",
+    "projects": "Open source",
+    "experience": "Experience",
+    "education": "Education",
+    "languages": "Languages",
+    "download_pdf": "Download PDF",
+    "write": "Email",
+    "code": "Code",
+    "demo": "Open",
+    "skip": "Skip to content"
+  },
+  "summary": "In August 2026 I defended a PhD in Computer Science at Igor Sikorsky Kyiv Polytechnic Institute. The dissertation studies how evolutionary algorithms optimize neural networks: four methods that prune and compress networks, tune hyperparameters, and merge models. Author of 5 research publications, including a paper in a Scopus-indexed journal. From September 2025 to June 2026 I worked as a junior software developer. I taught a university course on algorithm design. I am looking for applied, product-focused ML work.",
+  "dissertation_code": {
+    "label": "Code and experiment results",
+    "url": "https://github.com/GirBP/evolutionary_algorithms"
+  },
+  "projects": {
+    "lead": "The applications were built together with the Claude Code agent.",
+    "items": [
+      {
+        "name": "DupScan",
+        "text": "Duplicate file and folder finder for macOS.",
+        "stack": "Python, PySide6",
+        "url": "https://github.com/GirBP/dupscan"
+      },
+      {
+        "name": "Android Mover",
+        "text": "File transfer between Android and Mac over adb.",
+        "stack": "Swift, SwiftUI",
+        "url": "https://github.com/GirBP/android-mover-mac"
+      },
+      {
+        "name": "ApexCam",
+        "text": "Camera app for Android.",
+        "stack": "Kotlin, Compose, Camera2 and CameraX",
+        "url": "https://github.com/GirBP/apexcam"
+      },
+      {
+        "name": "ShouldIPost",
+        "text": "Predicts how a video will perform before it is posted.",
+        "stack": "Python, scikit-learn, FastAPI",
+        "url": "https://github.com/GirBP/should-i-post"
+      },
+      {
+        "name": "Kotyk za kermom",
+        "text": "Browser driving game set on the streets of Obolon, Kyiv.",
+        "stack": "JavaScript, Vite",
+        "url": "https://github.com/GirBP/kotik-obolon",
+        "demo_url": "https://girbp.github.io/kotik-obolon/"
+      },
+      {
+        "name": "NO STING",
+        "text": "Bilingual web comic about bees.",
+        "stack": "HTML, CSS, JavaScript",
+        "url": "https://github.com/GirBP/no-sting-comic"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "title": "Junior Software Developer",
+      "org": "KILOBYTE1024 LLC (ТОВ «КІЛОБАЙТ1024»), Kyiv",
+      "date": "09.2025 – 06.2026",
+      "text": ""
+    },
+    {
+      "title": "Teaching Assistant",
+      "org": "Igor Sikorsky Kyiv Polytechnic Institute",
+      "date": "during PhD studies",
+      "text": "Led practical and laboratory sessions for the course “Design and Analysis of Computational Algorithms”: complexity analysis, data structures, algorithm-design strategies."
+    },
+    {
+      "title": "Systems Administrator",
+      "org": "Department of System Design, Igor Sikorsky Kyiv Polytechnic Institute",
+      "date": "11.2017 – 12.2018",
+      "text": "Administered 20+ servers (Windows Server) and 70+ workstations: virtualization (VMware, VirtualBox), Active Directory, networking and monitoring."
+    }
+  ],
+  "languages": [
+    {
+      "name": "Ukrainian",
+      "level": "native"
+    },
+    {
+      "name": "English",
+      "level": "B2"
+    }
+  ],
+  "skills": [
+    {
+      "label": "Programming",
+      "text": "Python (primary); C / C++ (basic)"
+    },
+    {
+      "label": "Machine Learning & Data Science",
+      "text": "PyTorch, scikit-learn, NumPy, SciPy, pandas, Matplotlib; evolutionary computation (CMA-ES, DEAP, sklearn-genetic); neural-network pruning and compression, hyperparameter optimization (Optuna), NAS, AutoML; statistical hypothesis testing (Friedman, Wilcoxon, Nemenyi tests)."
+    },
+    {
+      "label": "Tools & Infrastructure",
+      "text": "Git, Docker (basic), Google Colab, AI coding assistants (Claude Code)."
+    }
+  ],
+  "dissertation": {
+    "lead": "PhD dissertation (122 Computer Science): “Optimization of Parameters and Structure of Neural Networks Using Evolutionary Algorithms”. Defended on 28 August 2026 before one-time specialized academic council DF 26.002.419 at Igor Sikorsky KPI; unanimous vote.",
+    "methods": [
+      {
+        "name": "TESA-26",
+        "text": "Weight pruning. An evolutionary search (CMA-ES) decides what share of weights each layer keeps. Best Friedman rank (2.04) among 5 methods on 6 datasets; significantly better than SparseGPT, WANDA and RIA."
+      },
+      {
+        "name": "GFCS",
+        "text": "Converts a sparse network into a compact dense one without training data or retraining. Compresses the model 7.6× and preserves quality on all 8 datasets studied."
+      },
+      {
+        "name": "SACMA-DAC and SACMA-MAB",
+        "text": "Hyperparameter search. CMA-ES explores candidates on a surrogate model (Random Forest), and only one candidate per iteration gets a full training run. Ranked 1st and 2nd among 9 methods on 43 tasks, with the fastest convergence."
+      },
+      {
+        "name": "ENT",
+        "text": "A genetic algorithm merges two networks trained on different classes into a single model. On MNIST the merged model recognizes all 10 classes; accuracy after calibration is 0.917."
+      },
+      {
+        "name": "Applicability limit",
+        "text": "Showed that evolutionary algorithms work well for low-dimensional structural decisions, while gradient methods remain better at training network weights."
+      },
+      {
+        "name": "Deployment",
+        "text": "TESA-26, GFCS and SACMA are used at SD Profzviazok LLC (deployment certificate, 5 May 2026)."
+      }
+    ]
+  },
+  "publications": {
+    "lead": "1 Scopus-indexed paper, 3 papers in Ukrainian peer-reviewed journals, 1 conference abstract.",
+    "items": [
+      {
+        "title": "Effectiveness of evolutionary algorithms in neural-network optimization (2026)",
+        "desc": "Compared evolutionary (CMA-ES), gradient-based and Bayesian methods on unconstrained minimization, structured pruning and hyperparameter optimization. CMA-ES + SynFlow with energy compensation gave the best quality under extreme pruning (98%, F1 = 0.81). Reported the limits honestly: Adam trains weights better, and magnitude pruning wins at moderate sparsity.",
+        "cite": "Hirianskyi, B., & Bulakh, B. (2026). Effectiveness of evolutionary algorithms in neural network optimization tasks: Unconditional minimization, pruning, and hyperparameter optimization. Control, Navigation and Communication Systems, 1(83), 45–50. https://doi.org/10.26906/sunz.2026.1.045",
+        "doi_url": "https://doi.org/10.26906/sunz.2026.1.045"
+      },
+      {
+        "title": "Neuroevolutionary synthesis of neural networks (2025, in Ukrainian)",
+        "desc": "Implemented two neuroevolution algorithms from scratch, memetic and hybrid, that automatically select network architecture and weights. On non-linear binary-classification tasks (XOR, Moons, Breast Cancer) they outperformed a fixed-architecture perceptron. Python, NumPy, scikit-learn.",
+        "cite": "Hirianskyi, B., & Bulakh, B. (2025). [Creating neural networks through neuroevolution and automated learning using evolutionary algorithms]. Science and Technology Today, 8(49), 1214–1227. https://doi.org/10.52058/2786-6025-2025-8(49)-1214-1227",
+        "doi_url": "https://doi.org/10.52058/2786-6025-2025-8(49)-1214-1227"
+      },
+      {
+        "title": "Evolutionary optimization of neural networks (2024)",
+        "desc": "Applied genetic algorithms (DEAP, sklearn-genetic) to optimize the architecture, hyperparameters and weights of a multilayer perceptron on the Wine Quality dataset. Reported honestly that the evolutionary approach did not, on average, beat the baseline in quality and required far more computation.",
+        "cite": "Hirianskyi, B., & Bulakh, B. (2024). Using evolutionary algorithms for training and optimizing neural networks. Science and Technology Today, 8(36), 808–823. https://doi.org/10.52058/2786-6025-2024-8(36)-808-823",
+        "doi_url": "https://doi.org/10.52058/2786-6025-2024-8(36)-808-823"
+      },
+      {
+        "title": "A review of evolutionary algorithms for neural-network synthesis and training (2023, Scopus-indexed)",
+        "desc": "Systematized how genetic algorithms are applied to neural networks: feature selection, weight optimization, changes to connection structure, and optimizer tuning.",
+        "cite": "Hirianskyi, B., & Bulakh, B. (2023). A review of practice of using evolutionary algorithms for neural network synthesis and training. Technology Audit and Production Reserves, 4(2(72)), 22–26. https://doi.org/10.15587/2706-5448.2023.286278",
+        "doi_url": "https://doi.org/10.15587/2706-5448.2023.286278"
+      },
+      {
+        "title": "International conference abstract (Athens, Greece, 24–26 December 2025, in Ukrainian)",
+        "desc": "",
+        "cite": "Hirianskyi, B. (2025). [Using evolutionary algorithms for neural network synthesis and training: State of the art and prospects]. Science and Information Technologies in the Modern World, 165–168. https://doi.org/10.70286/isu-24.12.2025.006",
+        "doi_url": "https://doi.org/10.70286/isu-24.12.2025.006"
+      }
+    ]
+  },
+  "education": {
+    "affil": "Igor Sikorsky Kyiv Polytechnic Institute · Institute for Applied System Analysis (IASA) · Department of System Design",
+    "items": [
+      {
+        "title": "PhD (Doctor of Philosophy), Computer Science (122)",
+        "date": "2022 – 2026",
+        "meta": "Dissertation defended on 28 August 2026 (council DF 26.002.419). Supervisor: Assoc. Prof. B. Bulakh, PhD"
+      },
+      {
+        "title": "MSc, Computer Science",
+        "date": "2020 – 2021",
+        "meta": "Diploma with honours. Thesis: “Estimating patient age as a health measure from ECG” — machine / deep learning"
+      },
+      {
+        "title": "BSc, Computer Science",
+        "date": "2016 – 2020",
+        "meta": "Thesis: “Using machine learning to detect cardiovascular diseases”"
+      }
+    ]
+  }
+}
