@@ -62,7 +62,8 @@ function renderPrintContact(data) {
   const parts = [];
   parts.push(`<a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a>`);
   for (const l of data.links || []) {
-    const bare = l.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+    // Для телефону в друці показуємо номер, а не адресу tel:
+    const bare = l.url.startsWith("tel:") ? l.label : l.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
     parts.push(`<a href="${escapeHtml(l.url)}">${escapeHtml(bare)}</a>`);
   }
   return parts.join(" · ");

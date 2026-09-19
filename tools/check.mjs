@@ -81,7 +81,7 @@ function checkLinks(file, html, ids) {
       }
       continue;
     }
-    if (/^(https?:)?\/\//.test(value) || value.startsWith("mailto:")) {
+    if (/^(https?:)?\/\//.test(value) || value.startsWith("mailto:") || value.startsWith("tel:")) {
       continue; // зовнішнє посилання — не перевіряємо мережею
     }
     // внутрішнє посилання (відносне або кореневе "/...") -> файл на диску

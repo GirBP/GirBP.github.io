@@ -6,6 +6,18 @@
   "email": "giryanskbogdan@gmail.com",
   "links": [
     {
+      "label": "+380 63 154 2949",
+      "url": "tel:+380631542949"
+    },
+    {
+      "label": "+380 50 922 1769",
+      "url": "tel:+380509221769"
+    },
+    {
+      "label": "Telegram",
+      "url": "https://t.me/HBohdann"
+    },
+    {
       "label": "GitHub",
       "url": "https://github.com/GirBP"
     },
@@ -43,6 +55,20 @@
     "lead": "Застосунки зібрано разом з агентом Claude Code.",
     "items": [
       {
+        "name": "Бджоли не про мед",
+        "text": "Науково-популярна книга про бджіл у мемах: 48 мемів, 13 розділів. Сайт із версіями PDF та EPUB.",
+        "stack": "HTML, CSS, JavaScript",
+        "url": "https://github.com/GirBP/bdzholy-ne-pro-med",
+        "demo_url": "https://girbp.github.io/bdzholy-ne-pro-med/"
+      },
+      {
+        "name": "НЕ ЖАЛЬ",
+        "text": "Двомовний сайт-комікс про бджіл.",
+        "stack": "HTML, CSS, JavaScript",
+        "url": "https://github.com/GirBP/no-sting-comic",
+        "demo_url": "https://girbp.github.io/no-sting-comic/"
+      },
+      {
         "name": "DupScan",
         "text": "Шукає дублікати файлів і тек на macOS.",
         "stack": "Python, PySide6",
@@ -72,12 +98,6 @@
         "stack": "JavaScript, Vite",
         "url": "https://github.com/GirBP/kotik-obolon",
         "demo_url": "https://girbp.github.io/kotik-obolon/"
-      },
-      {
-        "name": "НЕ ЖАЛЬ",
-        "text": "Двомовний сайт-комікс про бджіл.",
-        "stack": "HTML, CSS, JavaScript",
-        "url": "https://github.com/GirBP/no-sting-comic"
       }
     ]
   },

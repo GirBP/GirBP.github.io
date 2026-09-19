@@ -6,6 +6,18 @@
   "email": "giryanskbogdan@gmail.com",
   "links": [
     {
+      "label": "+380 63 154 2949",
+      "url": "tel:+380631542949"
+    },
+    {
+      "label": "+380 50 922 1769",
+      "url": "tel:+380509221769"
+    },
+    {
+      "label": "Telegram",
+      "url": "https://t.me/HBohdann"
+    },
+    {
       "label": "GitHub",
       "url": "https://github.com/GirBP"
     },
@@ -43,6 +55,20 @@
     "lead": "The applications were built together with the Claude Code agent.",
     "items": [
       {
+        "name": "Bees Are Not About Honey",
+        "text": "Popular-science book about bees told through memes: 48 memes, 13 chapters, in Ukrainian. Website with PDF and EPUB editions.",
+        "stack": "HTML, CSS, JavaScript",
+        "url": "https://github.com/GirBP/bdzholy-ne-pro-med",
+        "demo_url": "https://girbp.github.io/bdzholy-ne-pro-med/"
+      },
+      {
+        "name": "NO STING",
+        "text": "Bilingual web comic about bees.",
+        "stack": "HTML, CSS, JavaScript",
+        "url": "https://github.com/GirBP/no-sting-comic",
+        "demo_url": "https://girbp.github.io/no-sting-comic/"
+      },
+      {
         "name": "DupScan",
         "text": "Duplicate file and folder finder for macOS.",
         "stack": "Python, PySide6",
@@ -72,12 +98,6 @@
         "stack": "JavaScript, Vite",
         "url": "https://github.com/GirBP/kotik-obolon",
         "demo_url": "https://girbp.github.io/kotik-obolon/"
-      },
-      {
-        "name": "NO STING",
-        "text": "Bilingual web comic about bees.",
-        "stack": "HTML, CSS, JavaScript",
-        "url": "https://github.com/GirBP/no-sting-comic"
       }
     ]
   },
