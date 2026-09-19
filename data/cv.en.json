@@ -44,7 +44,8 @@
     "write": "Email",
     "code": "Code",
     "demo": "Open",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "contacts": "Contacts"
   },
   "summary": "In August 2026 I defended a PhD in Computer Science at Igor Sikorsky Kyiv Polytechnic Institute. The dissertation studies how evolutionary algorithms optimize neural networks: four methods that prune and compress networks, tune hyperparameters, and merge models. Author of 5 research publications, including a paper in a Scopus-indexed journal. From September 2025 to June 2026 I worked as a junior software developer. I taught a university course on algorithm design. I am looking for applied, product-focused ML work.",
   "dissertation_code": {

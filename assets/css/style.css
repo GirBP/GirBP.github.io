@@ -15,18 +15,21 @@
   --size-body: 1rem;      /* 16px */
   --size-small: 0.9375rem; /* 15px */
   --size-h3: 1.125rem;     /* 18px */
-  --size-h2: 1.375rem;     /* 22px */
-  --size-h1: 1.875rem;     /* 30px */
+  --size-label: 0.8125rem; /* 13px, назва розділу */
+  --size-h1: clamp(1.625rem, 1.2rem + 2.2vw, 1.875rem); /* 26–30px: на 320 px ім'я лягає у два рядки */
   --size-headline: 1.0625rem; /* 17px */
 
   --line-body: 1.55;
   --line-heading: 1.2;
 
   --measure: 38rem; /* ~70 знаків рядка для основного тексту */
+  --label-col: 9rem; /* ліва колонка з назвами розділів на широкому екрані */
+  --label-gap: 2rem;
 
   --color-bg: #ffffff;
   --color-surface: #f6f7f8;
   --color-border: #e2e2e4;
+  --color-rule: #c3cad4; /* лінія між розділами, помітніша за лінію між пунктами */
   --color-text: #1a1a1a;
   --color-heading: #16365c;
   --color-accent: #1f4e79;
@@ -43,6 +46,7 @@
     --color-bg: #14191f;
     --color-surface: #1b222b;
     --color-border: #2a323c;
+    --color-rule: #44505d;
     --color-text: #e5e5e5;
     --color-heading: #9fc5e8;
     --color-accent: #8ab4e0;
@@ -103,16 +107,15 @@ main {
   max-width: var(--measure);
   margin-inline: auto;
   padding-inline: var(--space-4);
-  padding-block-end: var(--space-7);
 }
 
 h1,
-h2,
 h3 {
   font-family: var(--font-heading);
   color: var(--color-heading);
   line-height: var(--line-heading);
   font-weight: 700;
+  text-wrap: balance;
 }
 
 h1 {
@@ -120,15 +123,17 @@ h1 {
   margin: 0 0 var(--space-2);
 }
 
+/* Назва розділу: малий підпис великими літерами. Пункти всередині розділу
+   набрано шрифтом із зарубками, тож їх неможливо сплутати. */
 h2 {
-  font-size: var(--size-h2);
-  margin: var(--space-7) 0 var(--space-4);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
-}
-
-section:first-of-type h2 {
-  margin-top: var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--size-label);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-3);
 }
 
 h3 {
@@ -138,6 +143,7 @@ h3 {
 
 p {
   margin: 0 0 var(--space-3);
+  text-wrap: pretty;
 }
 
 a {
@@ -211,7 +217,13 @@ header {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 30rem) {
+  .actions .btn {
+    flex: 1 1 auto;
+  }
 }
 
 .btn {
@@ -261,32 +273,32 @@ header {
   }
 }
 
-.header-links {
+/* Два списки: телефони і профілі. На телефоні це два рядки, на широкому екрані один.
+   Висота рядка 44 px лишається ціллю дотику, додаткового проміжку між рядками немає. */
+.link-rows,
+.link-rows ul {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2) var(--space-4);
+  column-gap: var(--space-4);
 }
 
-.header-links ul {
+.link-rows ul {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-4);
   margin: 0;
   padding: 0;
 }
 
-.header-links li {
+.link-rows li {
   display: flex;
 }
 
-.header-links a,
-.lang-switch {
+.link-rows a {
   display: inline-flex;
   align-items: center;
   min-height: var(--touch-min);
+  min-width: var(--touch-min);
   font-size: var(--size-small);
+  white-space: nowrap;
 }
 
 .print-contact {
@@ -297,6 +309,24 @@ header {
 
 section {
   scroll-margin-top: var(--space-4);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-rule);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* Вступний абзац розділу відділено від переліку тією ж лінією, що й пункти між собою. */
+.section-body > p + .entry-list > .entry:first-child {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
 }
 
 .meta {
@@ -350,6 +380,14 @@ section {
   padding-top: 0;
 }
 
+.entry:last-child {
+  padding-bottom: 0;
+}
+
+.entry > :last-child {
+  margin-bottom: 0;
+}
+
 ol.entry-list {
   counter-reset: pub;
 }
@@ -371,6 +409,11 @@ ol.entry-list > li.entry {
 
 .plain-list li:first-child {
   border-top: none;
+  padding-top: 0;
+}
+
+.plain-list li:last-child {
+  padding-bottom: 0;
 }
 
 #dissertation .dissertation-code {
@@ -386,131 +429,261 @@ ol.entry-list > li.entry {
 /* Підвал */
 
 footer {
-  padding-block: var(--space-6) var(--space-7);
-  border-top: 1px solid var(--color-border);
+  position: relative;
+  margin-top: var(--space-6);
+  padding-block: var(--space-4) var(--space-6);
   font-size: var(--size-small);
   color: var(--color-muted);
 }
 
-footer a {
-  min-height: var(--touch-min);
-  min-width: var(--touch-min);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding-inline: var(--space-1);
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 var(--space-4) auto;
+  border-top: 1px solid var(--color-rule);
 }
 
-/* Друк */
+
+
+/* Широкий екран: назва розділу стоїть ліворуч на рівні першого рядка змісту.
+   Шапка й підвал вирівняні по колонці змісту. */
+
+@media (min-width: 50rem) {
+  .wrap,
+  main {
+    max-width: calc(var(--measure) + var(--label-col) + var(--label-gap));
+  }
+
+  header.wrap,
+  footer.wrap {
+    padding-inline-start: calc(var(--space-4) + var(--label-col) + var(--label-gap));
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: var(--label-col) minmax(0, 1fr);
+    column-gap: var(--label-gap);
+    align-items: baseline;
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  footer {
+    margin-top: var(--space-7);
+  }
+}
+
+/* Друк: той самий устрій, що й на широкому екрані. Назви розділів стоять у лівій
+   колонці, шапка вирівняна по колонці змісту. Мета — дві сторінки A4. */
 
 @media print {
   @page {
     size: A4;
-    margin: 14mm;
+    margin: 12mm 13mm;
+  }
+
+  :root {
+    --label-col: 25mm;
+    --label-gap: 4mm;
   }
 
   html,
   body {
     background: #ffffff;
     color: #000000;
-    font-size: 8.4pt;
-    line-height: 1.24;
+    font-size: 8.8pt;
+    line-height: 1.32;
   }
 
   /* Системний шрифт macOS потрапляє в PDF як Type 3, і частина програм читає з нього
      «ĸ» замість «к». Arial вбудовується з правильною таблицею символів. */
-  body {
+  body,
+  h2 {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   }
 
-  #summary > p {
-    column-span: all;
+  .skip-link,
+  .actions,
+  .link-rows,
+  footer {
+    display: none;
+  }
+
+  .wrap,
+  main {
+    max-width: none;
+    padding: 0;
+  }
+
+  header.wrap {
+    padding: 0 0 8pt calc(var(--label-col) + var(--label-gap));
+  }
+
+  .identity {
+    margin-bottom: 3pt;
+  }
+
+  h1 {
+    font-size: 17pt;
+    margin-bottom: 2pt;
+    color: #16365c;
+  }
+
+  .identity .headline {
+    font-size: 9.6pt;
+    margin-bottom: 1pt;
+  }
+
+  .identity .location {
+    font-size: 8pt;
+    color: #444444;
+  }
+
+  .print-contact {
+    display: block;
+    color: #000000;
+    font-size: 8.4pt;
+    margin: 0;
+  }
+
+  .print-contact span {
+    display: block;
   }
 
   .print-contact a {
     white-space: nowrap;
   }
 
-  .skip-link,
-  .actions,
-  .header-links {
-    display: none;
+  section {
+    display: grid;
+    grid-template-columns: var(--label-col) minmax(0, 1fr);
+    column-gap: var(--label-gap);
+    align-items: baseline;
+    margin-top: 7pt;
+    padding-top: 6pt;
+    border-top: 0.6pt solid #8d99a6;
   }
 
-  .print-contact {
-    display: block;
-    color: #000000;
-    font-size: 9pt;
-    margin: var(--space-2) 0 0;
-  }
-
-  header {
-    padding-block: 0 var(--space-3);
-  }
-
-  .identity {
-    margin-bottom: var(--space-2);
-  }
-
-  h1 {
-    font-size: 16pt;
-  }
-
-  .identity .headline {
-    font-size: 9.5pt;
-  }
-
-  .identity .location {
-    font-size: 8pt;
-  }
-
-  main {
-    columns: 2;
-    column-gap: 7mm;
-    max-width: none;
-    padding: 0;
-  }
-
-  h2 {
-    font-size: 11pt;
-    margin: var(--space-2) 0 var(--space-1);
-    padding-top: 3px;
-    column-span: all;
-    break-after: avoid;
-  }
-
-  section:first-of-type h2 {
+  section:first-of-type {
     margin-top: 0;
   }
 
-  h3 {
-    font-size: 9pt;
+  h2 {
+    font-size: 6.8pt;
+    line-height: 1.3;
     margin: 0;
+    color: #1f4e79;
+    break-after: avoid;
+  }
+
+  h3 {
+    font-size: 9.2pt;
+    margin: 0 0 1pt;
+    color: #16365c;
+    break-after: avoid;
   }
 
   p {
-    margin: 0 0 3px;
+    margin: 0 0 2.5pt;
+    orphans: 2;
+    widows: 2;
+  }
+
+  /* Вступний абзац не лишається внизу сторінки без першого пункту. */
+  .section-body > p:first-child {
+    break-after: avoid;
+  }
+
+  /* Навички й методи дисертації: назва пункту стоїть у рядку з текстом. */
+  #skills h3,
+  #skills .entry p,
+  #dissertation .entry h3,
+  #dissertation .entry p {
+    display: inline;
+  }
+
+  #skills h3::after {
+    content: ": ";
+  }
+
+  #dissertation .entry h3::after {
+    content: ". ";
+  }
+
+  /* Освіта: роки стоять праворуч у рядку з назвою ступеня. */
+  #education .entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 8pt;
+    align-items: baseline;
+  }
+
+  #education .entry p:last-child {
+    grid-column: 1 / -1;
   }
 
   a {
     color: #000000;
     text-decoration: underline;
+    text-decoration-thickness: 0.4pt;
   }
 
   .entry {
-    padding-block: 4px;
+    padding-block: 3.5pt;
+    border-top: 0.4pt solid #d0d5db;
     break-inside: avoid;
+  }
+
+  .section-body > p + .entry-list > .entry:first-child {
+    margin-top: 1.5pt;
+    padding-top: 3.5pt;
+    border-top: 0.4pt solid #d0d5db;
   }
 
   .meta,
   .cite,
   .stack,
   .entry-links {
-    font-size: 7.3pt;
+    font-size: 7.6pt;
+    color: #3a3a3a;
+  }
+
+  .meta,
+  .stack {
+    margin-bottom: 1.5pt;
+  }
+
+  /* Проєкти: короткі пункти у дві колонки, стек і посилання одним рядком. */
+  #projects .entry-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6mm;
+  }
+
+  #projects .entry:nth-child(2) {
+    margin-top: 1.5pt;
+    padding-top: 3.5pt;
+  }
+
+  #projects .entry:nth-last-child(2):nth-child(odd) {
+    padding-bottom: 0;
+  }
+
+  #projects .stack {
+    display: inline;
+  }
+
+  #projects .stack::after {
+    content: " · ";
   }
 
   .entry-links {
-    gap: 2px 8px;
+    display: inline-flex;
+    gap: 0 5pt;
   }
 
   .entry-links a,
@@ -522,7 +695,26 @@ footer a {
     border: none;
   }
 
-  footer {
-    display: none;
+  #dissertation .dissertation-code {
+    margin-top: 2pt;
+  }
+
+  /* Мови: один рядок замість списку. */
+  .plain-list {
+    display: flex;
+    gap: 0 14pt;
+  }
+
+  .plain-list li,
+  .plain-list li:first-child {
+    padding-block: 0;
+    border-top: none;
+  }
+
+  #summary,
+  #skills,
+  #experience,
+  #languages {
+    break-inside: avoid;
   }
 }
