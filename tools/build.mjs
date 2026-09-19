@@ -36,7 +36,8 @@ function prose(value) {
     .replace(/(\d) (?=[\p{L}%])/gu, "$1&nbsp;")
     .replace(/(^|[\s(«„])(\p{L}) (?=\S)/gu, "$1$2&nbsp;")
     .replace(/(\p{Lu}\.) (?=\p{Lu})/gu, "$1&nbsp;")
-    .replace(/ ([–—]) /g, "&nbsp;$1 ");
+    .replace(/ ([–—]) /g, "&nbsp;$1 ")
+    .replace(/≈ (?=\d)/g, "≈&nbsp;");
 }
 
 // Екранування для вмісту JSON-LD <script type="application/ld+json">:
